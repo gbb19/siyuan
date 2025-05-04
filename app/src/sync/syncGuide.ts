@@ -148,6 +148,12 @@ export const syncGuide = (app?: App) => {
     if (window.siyuan.config.readonly) {
         return;
     }
+
+    if (!window.siyuan.config.sync.enabled) {
+        showMessage("Please configure synchronization information in Settings - Cloud");
+        return;
+    }
+
     /// #if MOBILE
     if (0 === window.siyuan.config.sync.provider) {
         if (needSubscribe()) {
